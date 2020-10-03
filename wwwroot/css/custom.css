@@ -1,0 +1,16 @@
+﻿body {
+    background-color:grey;
+}
+header{
+    background-color:azure;
+}
+footer{
+    background-color:gold;
+}
+a{
+    color:black;
+
+}
+a:hover{
+    color:gold;
+}
