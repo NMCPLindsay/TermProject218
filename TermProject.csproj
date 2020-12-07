@@ -6,10 +6,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Data\Migrations\20201207012601_Initial.cs" />
+    <Compile Remove="Data\Migrations\20201207012601_Initial.Designer.cs" />
+    <Compile Remove="Data\Migrations\20201207014634_2.cs" />
+    <Compile Remove="Data\Migrations\20201207014634_2.Designer.cs" />
+    <Compile Remove="Migrations\20201207013347_Second.cs" />
+    <Compile Remove="Migrations\20201207013347_Second.Designer.cs" />
+    <Compile Remove="Migrations\20201207014558_1.cs" />
+    <Compile Remove="Migrations\20201207014558_1.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="jQuery" Version="3.5.1" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.8" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.8" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.8" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.10">

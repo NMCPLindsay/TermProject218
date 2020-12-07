@@ -18,7 +18,7 @@ namespace TermProject.Controllers
 
 
 
-        // GET: HomeController/Create
+        
         public ActionResult About()
         {
             return View();
