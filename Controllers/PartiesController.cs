@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -43,6 +44,7 @@ namespace TermProject.Controllers
         }
 
         // GET: Parties/Create
+        [Authorize("Administrator, Manager")]
         public IActionResult Create()
         {
             return View();
@@ -53,6 +55,7 @@ namespace TermProject.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize("Administrator, Manager")]
         public async Task<IActionResult> Create([Bind("Id,Name,YearFormed")] Party party)
         {
             if (ModelState.IsValid)
@@ -65,6 +68,7 @@ namespace TermProject.Controllers
         }
 
         // GET: Parties/Edit/5
+        [Authorize("Administrator, Manager")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -85,6 +89,7 @@ namespace TermProject.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize("Administrator, Manager")]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name,YearFormed")] Party party)
         {
             if (id != party.Id)
@@ -116,6 +121,7 @@ namespace TermProject.Controllers
         }
 
         // GET: Parties/Delete/5
+        [Authorize("Administrator, Manager")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -136,6 +142,7 @@ namespace TermProject.Controllers
         // POST: Parties/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize("Administrator, Manager")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var party = await _context.Party.FindAsync(id);

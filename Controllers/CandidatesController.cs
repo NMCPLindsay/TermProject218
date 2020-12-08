@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -46,6 +47,7 @@ namespace TermProject.Controllers
         }
 
         // GET: Candidates/Create
+        [Authorize("Administrator, Manager")]
         public IActionResult Create()
         {
             ViewData["PartyId"] = new SelectList(_context.Party, "Id", "Name");
@@ -58,6 +60,7 @@ namespace TermProject.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize("Administrator, Manager")]
         public async Task<IActionResult> Create([Bind("Id,FirstName,LastName,PartyId,StateId")] Candidates candidates)
         {
             if (ModelState.IsValid)
@@ -72,6 +75,7 @@ namespace TermProject.Controllers
         }
 
         // GET: Candidates/Edit/5
+        [Authorize("Administrator, Manager")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -94,6 +98,7 @@ namespace TermProject.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize("Administrator, Manager")]
         public async Task<IActionResult> Edit(int id, [Bind("Id,FirstName,LastName,PartyId,StateId")] Candidates candidates)
         {
             if (id != candidates.Id)
@@ -127,6 +132,7 @@ namespace TermProject.Controllers
         }
 
         // GET: Candidates/Delete/5
+        [Authorize("Administrator, Manager")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -149,6 +155,7 @@ namespace TermProject.Controllers
         // POST: Candidates/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize("Administrator, Manager")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var candidates = await _context.Candidates.FindAsync(id);
